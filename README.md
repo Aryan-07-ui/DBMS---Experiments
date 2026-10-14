@@ -1,47 +1,68 @@
 # DBMS Practical Experiments (MySQL)
 
-**Student Name:** Aryan Kushwaha
-**Student ID / Roll Number:** 25LBCS3339
-**Semester:** 03
-**Course Name:** Database Management System  
-**Course Code:** 25CSH-210  
-**Program:** B.Tech – CSE (AI & ML)
+## Student Details
+- **Student Name:** Aryan Kushwaha
+- **Student ID / Roll Number:** 25LBCS3339
+- **Semester:** 03
+- **Course Name:** Database Management System
+- **Course Code:** 25CSH-210
+- **Program:** B.Tech – CSE (AI & ML)
+
+---
 
 ## Objectives
+The primary objectives of these lab experiments are:
+- Designing conceptual and logical database models using Entity-Relationship (ER) modeling and relational schemas.
+- Applying schema constraints and domain integrity rules (Primary Key, Foreign Key, Unique, Check, Not Null, Default).
+- Writing complex SQL queries involving aggregations, group filtering, joins, nested subqueries, and set operations.
+- Constructing database views and recursive Common Table Expressions (CTEs) for hierarchical organizational data.
+- Automating business logic and data auditing using stored procedures and event-driven triggers.
+- Evaluating query execution paths and performance using the `EXPLAIN` analytical statement.
 
-- Understand database management system concepts and relational database design.
-- Design ER diagrams and convert them into relational schemas.
-- Implement tables with primary keys, foreign keys, and integrity constraints.
-- Perform SQL operations using joins, subqueries, aggregate functions, and set-style queries.
-- Create views and recursive Common Table Expressions (CTEs).
-- Implement stored procedures, triggers, validation, and error handling.
-- Understand query execution plans using EXPLAIN.
+---
 
-This repository contains Experiments 1–6 as individual SQL scripts and the Experiment 1 ER diagram. Each SQL file starts with its **Aim**, followed by the SQL statements and an **Output (expected)** note. Output notes are guidance, not screenshots or claims that the scripts were executed on your machine.
+## Repository Description
+This repository contains SQL implementation scripts for Experiments 1 through 6 of the Database Management System practical curriculum. Each `.sql` script includes structured DDL/DML statements along with inline comments detailing expected query execution results and sample output formats.
+
+---
 
 ## Requirements
+- **Database Engine:** MySQL Server 8.0+ (Required for CTEs and advanced window functions)
+- **Client Interface:** MySQL Workbench 8.0+, MySQL CLI, or compatible SQL IDE
 
-- MySQL 8.0+ (recommended) and MySQL Workbench or another MySQL client.
-- Run scripts in a practice database/server, not a production database.
+---
 
-## Files
+## Repository Files
 
-- `Experiment_01.sql` — E-commerce ER model and relational tables
-- `ER_Diagram.png` — ER diagram for Experiment 1
-- `Experiment_02.sql` — Relational schema and integrity constraints
-- `Experiment_03.sql` — Employee–Department–Project schema and queries (30 employees, 5 departments, 8 projects)
-- `Experiment_04.sql` — Joins, subqueries, set-style queries, and EXPLAIN
-- `Experiment_05.sql` — Views and recursive CTE hierarchy
-- `Experiment_06.sql` — Stored procedure, triggers, and validation
+| File Name | Description |
+| :--- | :--- |
+| `Experiment_01.sql` | E-commerce ER model design and relational table implementations. |
+| `ER_Diagram.png` | Entity-Relationship diagram visual reference for Experiment 1. |
+| `Experiment_02.sql` | Relational schema definitions with integrity and key constraints. |
+| `Experiment_03.sql` | Employee–Department–Project relational database schema and basic queries. |
+| `Experiment_04.sql` | Advanced joins, correlated/nested subqueries, set-style operations, and `EXPLAIN` query analysis. |
+| `Experiment_05.sql` | Standard database views and recursive Common Table Expressions (CTEs) for hierarchy traversal. |
+| `Experiment_06.sql` | Custom stored procedures, validation triggers, and automated logging routines. |
 
-## Recommended Run Order
+---
 
-1. Run Experiments 1 and 2 independently.
-2. Run Experiment 3 before Experiments 4, 5, and 6; these scripts share `EmployeeDB`.
-3. Experiment 5 alters the Employee table and is intended to be run once on a fresh setup. If re-running it, recreate `EmployeeDB` first or carefully remove the already-added manager column and constraint.
-4. In Experiment 2, invalid INSERT examples are commented out intentionally; uncomment one at a time to observe constraint errors.
-5. Review each script before execution and use a practice database.
+## Recommended Execution Order
+
+To maintain relational integrity and satisfy foreign key dependencies, execute the scripts sequentially:
+
+1. **`Experiment_01.sql`**: Execute independently to create and populate the initial E-commerce schema.
+2. **`Experiment_02.sql`**: Run to implement constraint validation models.
+3. **`Experiment_03.sql`**: **Required dependency.** Builds the foundational `Employee`, `Department`, and `Project` schemas required by subsequent scripts.
+4. **`Experiment_04.sql`**: Depends on tables populated in Experiment 3.
+5. **`Experiment_05.sql`**: Extends the schema from Experiment 3 with organizational views and recursive employee hierarchy CTEs.
+   > **Note:** If rerunning `Experiment_05.sql`, ensure dependent views are dropped first (`DROP VIEW IF EXISTS ...`) to prevent object definition conflicts.
+6. **`Experiment_06.sql`**: Implements stored routines and trigger-based business rules on the base tables.
+
+---
 
 ## Conclusion
+These experiments cover core relational database concepts—ranging from early entity design and integrity enforcement to procedural database programming and query optimization using modern MySQL 8.0+ constructs.
 
-These practical experiments provide hands-on experience with database design, relational schema implementation, SQL querying, and integrity constraints. They also introduce views, recursive CTEs, stored procedures, and triggers. Completing these experiments helps develop the skills required to design, manage, and query structured databases efficiently.
+---
+
+DBMS-Practical-Experiments
